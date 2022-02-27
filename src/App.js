@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import ChoonsikText from "./components/ChoonsikText";
+import InputContainer from "./components/InputContainer";
 
-function App() {
+const App = () => {
+  const [choonSikSay, setChoonSikSay] = useState("헤이! 난 춘식이에요!");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <ChoonsikText choonSikSay={choonSikSay} />
+      <HomeImg>
+        <img src="https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c4b3a18fdf58bc66ec3f4b6084b7d0b570" />
+      </HomeImg>
+      <InputContainer />
+    </Container>
   );
-}
+};
 
 export default App;
+
+const HomeImg = styled.div`
+  width: 200px;
+`;
+const Container = styled.div`
+  ${({ theme }) => theme.flexMinin("column", "center", "center")};
+`;
