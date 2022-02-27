@@ -1,10 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 
-const ChoonsikText = ({ choonSikSay }) => {
+const ChoonsikText = ({ currentAnswer }) => {
   return (
-    <div>
-      <div>{choonSikSay}</div>
-    </div>
+    <Container>
+      <div>{currentAnswer}</div>
+    </Container>
   );
 };
 export default ChoonsikText;
+
+const Container = styled.div`
+  margin: 15px auto;
+`;
