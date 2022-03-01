@@ -5,6 +5,10 @@ const theme = {
         justify-content: ${justify};
         align-items: ${align};
     `,
+  //     font-family: 'Black Han Sans', sans-serif;
+  // font-family: 'Nanum Gothic Coding', monospace;
+  // font-family: 'Nanum Pen Script', cursive;
+  // font-family: 'Noto Sans KR', sans-serif;
 };
 
 export default theme;

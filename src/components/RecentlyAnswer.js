@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const RecentlyAnswer = ({ teachAnswer }) => {
+const RecentlyAnswer = ({ teachQuestion }) => {
   return (
     <Container>
       <div>최근 알려준 대화</div>
       <AnswerContainer>
-        {teachAnswer.map((a, index) => {
+        {teachQuestion.map((a, index) => {
           return <AnswerBox key={index}>{a}</AnswerBox>;
         })}
       </AnswerContainer>

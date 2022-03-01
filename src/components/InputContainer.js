@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const InputContainer = ({ currentAnswer, setCurrentAnswer, currentQuestion, setCurrentQuestion }) => {
+const InputContainer = ({ currentAnswer, setCurrentAnswer, currentQuestion, setCurrentQuestion, teachAnswer, teachQuestion }) => {
   const changeEvent = (e) => {
     setCurrentQuestion(e.target.value);
   };
   const answerText = () => {
-    if (currentQuestion === "안녕") {
-      setCurrentAnswer("하이!");
-    } else if (currentQuestion === "앉아") {
-      setCurrentAnswer("싫어!");
-    } else if (currentQuestion === "춘식아") {
-      setCurrentAnswer("녜~");
-    } else {
-      setCurrentAnswer("???");
+    for (let i = 0; i < teachQuestion.length; i++) {
+      if (currentQuestion === teachQuestion[i]) {
+        setCurrentAnswer(teachAnswer[i]);
+        return;
+      } else {
+        setCurrentAnswer("???");
+      }
     }
   };
   const enterText = (e) => {

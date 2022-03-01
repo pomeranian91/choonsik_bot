@@ -9,21 +9,35 @@ import TeacherAnswer from "./components/TeacherAnswer";
 const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [currentAnswer, setCurrentAnswer] = useState("헤이! 난 춘식이에요!");
-  const [teachAnswer, setTeachAnswer] = useState(["안녕", "앉아", "춘식아"]);
-  const [textObject, setTextObject] = useState({ answer: { currentAnswer }, question: { currentQuestion } });
-  const AddTeachAnswer = () => {
-    setTeachAnswer([...teachAnswer, { currentQuestion }]);
+  const [teachQuestion, setTeachQuestion] = useState(["안녕", "앉아", "춘식아"]);
+  const [teachAnswer, setTeachAnswer] = useState(["하이!", "싫어!", "녜~"]);
+  const [addAnswer, setAddanswer] = useState("");
+
+  const AddTeachQuestion = () => {
+    setTeachQuestion([...teachQuestion, currentQuestion]);
+    setTeachAnswer([...teachAnswer, addAnswer]);
+    setCurrentAnswer("헤이! 난 춘식이에요!");
   };
-  console.log(textObject);
-  console.log(currentAnswer);
+  const AddTeachAnswer = (e) => {
+    setAddanswer(e.target.value);
+  };
+  console.log(teachAnswer);
   console.log(currentQuestion);
+  console.log(teachQuestion);
   return (
     <Container>
-      <RecentlyAnswer teachAnswer={teachAnswer} />
-      {currentAnswer === "???" ? <TeacherAnswer /> : null}
+      <RecentlyAnswer teachQuestion={teachQuestion} />
+      {currentAnswer === "???" ? <TeacherAnswer AddTeachQuestion={AddTeachQuestion} AddTeachAnswer={AddTeachAnswer} setCurrentAnswer={setCurrentAnswer} /> : null}
       <ChoonsikImg currentAnswer={currentAnswer} />
       <ChoonsikText currentAnswer={currentAnswer} />
-      <InputContainer currentAnswer={currentAnswer} setCurrentAnswer={setCurrentAnswer} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
+      <InputContainer
+        teachQuestion={teachQuestion}
+        teachAnswer={teachAnswer}
+        currentAnswer={currentAnswer}
+        setCurrentAnswer={setCurrentAnswer}
+        currentQuestion={currentQuestion}
+        setCurrentQuestion={setCurrentQuestion}
+      />
     </Container>
   );
 };

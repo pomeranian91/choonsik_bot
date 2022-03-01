@@ -8,7 +8,11 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     background-color: #ffffff;
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+  // font-family: 'Black Han Sans', sans-serif;
+  // font-family: 'Nanum Gothic Coding', monospace;
+  // font-family: 'Nanum Pen Script', cursive;
+  // font-family: 'Noto Sans KR', sans-serif;
   }
   a {
     color: inherit;
