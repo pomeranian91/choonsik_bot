@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const InputContainer = ({ currentAnswer, setCurrentAnswer, currentQuestion, setCurrentQuestion, teachAnswer, teachQuestion }) => {
+const InputContainer = ({ setCurrentAnswer, currentQuestion, setCurrentQuestion, teachAnswer, teachQuestion }) => {
   const changeEvent = (e) => {
     setCurrentQuestion(e.target.value);
   };
@@ -16,14 +16,14 @@ const InputContainer = ({ currentAnswer, setCurrentAnswer, currentQuestion, setC
     }
   };
   const enterText = (e) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       answerText();
     }
   };
 
   return (
     <Container>
-      <TextInput type="text" placeholder="춘식에게 말을 가르쳐주세요" onKeyPress={enterText} onChange={changeEvent}></TextInput>
+      <TextInput type="text" placeholder="춘식에게 말을 걸어보세요" onKeyPress={enterText} onChange={changeEvent}></TextInput>
       <QuestionButton onClick={answerText}>대화하기</QuestionButton>
     </Container>
   );
@@ -39,8 +39,18 @@ const TextInput = styled.input`
   padding: 15px;
   border: 1px solid black;
   border-radius: 10px;
+  text-align: center;
 `;
 const QuestionButton = styled.button`
   margin: 10px auto;
+  font-size: 16px;
+  font-weight: 600;
+  color: #58c6e8;
+  border: 1px solid #58c6e8;
+  border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    color: #000;
+    background-color: #58c6e8;
+  }
 `;

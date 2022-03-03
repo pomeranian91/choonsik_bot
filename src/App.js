@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ChoonsikImg from "./components/ChoonsikImg";
 import ChoonsikText from "./components/ChoonsikText";
@@ -12,7 +12,7 @@ const App = () => {
   const [teachQuestion, setTeachQuestion] = useState(["안녕", "앉아", "춘식아"]);
   const [teachAnswer, setTeachAnswer] = useState(["하이!", "싫어!", "녜~"]);
   const [addAnswer, setAddanswer] = useState("");
-
+  const [chatObject, setChatObject] = useState({});
   const AddTeachQuestion = () => {
     setTeachQuestion([...teachQuestion, currentQuestion]);
     setTeachAnswer([...teachAnswer, addAnswer]);
@@ -21,23 +21,14 @@ const App = () => {
   const AddTeachAnswer = (e) => {
     setAddanswer(e.target.value);
   };
-  console.log(teachAnswer);
-  console.log(currentQuestion);
-  console.log(teachQuestion);
+
   return (
     <Container>
-      <RecentlyAnswer teachQuestion={teachQuestion} />
+      <RecentlyAnswer setTeachQuestion={setTeachQuestion} teachAnswer={teachAnswer} teachQuestion={teachQuestion} />
       {currentAnswer === "???" ? <TeacherAnswer AddTeachQuestion={AddTeachQuestion} AddTeachAnswer={AddTeachAnswer} setCurrentAnswer={setCurrentAnswer} /> : null}
       <ChoonsikImg currentAnswer={currentAnswer} />
       <ChoonsikText currentAnswer={currentAnswer} />
-      <InputContainer
-        teachQuestion={teachQuestion}
-        teachAnswer={teachAnswer}
-        currentAnswer={currentAnswer}
-        setCurrentAnswer={setCurrentAnswer}
-        currentQuestion={currentQuestion}
-        setCurrentQuestion={setCurrentQuestion}
-      />
+      <InputContainer teachQuestion={teachQuestion} teachAnswer={teachAnswer} setCurrentAnswer={setCurrentAnswer} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />
     </Container>
   );
 };
